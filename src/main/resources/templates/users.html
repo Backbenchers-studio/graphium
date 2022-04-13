@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body>
+
+<div class="container text-center">
+
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th class="h2" scope="col"><b>Users</b></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listOfUsernames}">
+            <td th:text="${user}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div>
+    <p th:text="${currentUser}"></p>
+</div>
+
+<div th:replace="fragments/footer :: bootstrap-js"></div>
+</body>
+</html>

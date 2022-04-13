@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Files</title>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body>
+
+<!--Trying to make file system compact and making everything easily accessible so functions are close by-->
+
+<!--All files from database (viewable/downloadable)-->
+<div class="container text-center">
+
+    <div>
+        <h1>Your files:</h1>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th scope="col"><b>File Names</b></th>
+                <th scope="col"><b>Files</b></th>
+                <th scope="col"><b>Viewers</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="file : ${listOfFileNames}">
+                <td th:text="${file}"></td>
+                <td>
+                    <a class="mr-3" th:href="@{/files/view/} + ${file}">View</a>
+                    <a class="mr-3" th:href="@{/files/download/} + ${file}">Download</a>
+                    <a th:href="@{/files/file-access/} + ${file}">Set File Access</a>
+                </td>
+                <td>
+                    <a class="mr-3" th:href="@{/files/views/} + ${file}">Views</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container text-center">
+        <h5><a th:href="@{/files/upload}">Upload a file</a></h5><br>
+    </div>
+
+    <div>
+        <h1>Public Files</h1>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th scope="col"><b>File Names</b></th>
+                <th scope="col"><b>Files</b></th>
+                <th scope="col"><b>Viewers</b></th>
+            </tr>
+            <tbody>
+            <tr th:each="file : ${listOfPublicFiles}">
+                <td th:text="${file}"></td>
+                <td>
+                    <a class="mr-3" th:href="@{/files/view/} + ${file}">View</a>
+                    <a class="mr-3" th:href="@{/files/download/} + ${file}">Download</a>
+                </td>
+                <td><a class="mr-3" th:href="@{/files/views/} + ${file}">Views</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <div>
+        <h1>Organisation Files</h1>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th scope="col"><b>File Names</b></th>
+                <th scope="col"><b>Files</b></th>
+                <th scope="col"><b>Viewers</b></th>
+            </tr>
+            <tbody>
+            <tr th:each="file : ${listOfOrganisationFiles}">
+                <td th:text="${file}"></td>
+                <td>
+                    <a class="mr-3" th:href="@{/files/view/} + ${file}">View</a>
+                    <a class="mr-3" th:href="@{/files/download/} + ${file}">Download</a>
+                </td>
+                <td><a class="mr-3" th:href="@{/files/views/} + ${file}">Views</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+
+    <div>
+        <h1>Partner Organisation Files</h1>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th scope="col"><b>File Names</b></th>
+                <th scope="col"><b>Files</b></th>
+                <th scope="col"><b>Viewers</b></th>
+            </tr>
+            <tbody>
+            <tr th:each="file : ${listOfPartnerOrganisationFiles}">
+                <td th:text="${file}"></td>
+                <td>
+                    <a class="mr-3" th:href="@{/files/view/} + ${file}">View</a>
+                    <a class="mr-3" th:href="@{/files/download/} + ${file}">Download</a>
+                </td>
+                <td><a class="mr-3" th:href="@{/files/views/} + ${file}">Views</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: bootstrap-js"></div>
+</body>
+</html>
