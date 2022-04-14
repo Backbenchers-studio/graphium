@@ -6,19 +6,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema graphium
+-- Schema graphium1111111
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `graphium` ;
+DROP SCHEMA IF EXISTS `graphium1111111` ;
 -- -----------------------------------------------------
--- Schema graphium
+-- Schema graphium1111111
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `graphium` DEFAULT CHARACTER SET utf8 ;
-USE `graphium` ;
+CREATE SCHEMA IF NOT EXISTS `graphium1111111` DEFAULT CHARACTER SET utf8 ;
+USE `graphium1111111` ;
 -- -----------------------------------------------------
--- Table `graphium`.`users`
+-- Table `graphium1111111`.`users`
 -- -----------------------------------------------------
-DROP table IF EXISTS `graphium`.`users` ;
-CREATE TABLE IF NOT EXISTS `graphium`.`users` (
+DROP table IF EXISTS `graphium1111111`.`users` ;
+CREATE TABLE IF NOT EXISTS `graphium1111111`.`users` (
                                                   `user_id` INT(10) NOT NULL AUTO_INCREMENT,
                                                   `username` VARCHAR(20) NOT NULL,
 #                                                   `first_name` VARCHAR(50) NOT NULL,
@@ -31,31 +31,31 @@ CREATE TABLE IF NOT EXISTS `graphium`.`users` (
                                                   INDEX `organisation_idx` (`organisation_id` ASC) ,
                                                   CONSTRAINT `fk_organisation_user1`
                                                       FOREIGN KEY (`organisation_id`)
-                                                          REFERENCES `graphium`.`organisations` (`organisation_id`)
+                                                          REFERENCES `graphium111111`.`organisations` (`organisation_id`)
                                                           ON DELETE NO ACTION
                                                           ON UPDATE NO ACTION)
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
--- Table `graphium`.`organisations`
+-- Table `graphium111111`.`organisations`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `graphium`.`organisations`(
+CREATE TABLE IF NOT EXISTS `graphium111111`.`organisations`(
                                                          `organisation_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
                                                          `organisation_name` VARCHAR(100) NOT NULL,
                                                          PRIMARY KEY (`organisation_id`));
 -- -----------------------------------------------------
--- Table `graphium`.`files`
+-- Table `graphium111111`.`files`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `graphium`.`files`(
+CREATE TABLE IF NOT EXISTS `graphium111111`.`files`(
                                                  `file_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
                                                  `file_name` VARCHAR(50) NOT NULL,
                                                  `file_object` LONGBLOB NOT NULL,
                                                  PRIMARY KEY (`file_id`));
 -- -----------------------------------------------------
--- Table `graphium`.`partner_organisations`
+-- Table `graphium111111`.`partner_organisations`
 -- -----------------------------------------------------
-DROP table IF EXISTS `graphium`.`partner_organisations` ;
-CREATE TABLE IF NOT EXISTS `graphium`.`partner_organisations` (
+DROP table IF EXISTS `graphium111111`.`partner_organisations` ;
+CREATE TABLE IF NOT EXISTS `graphium111111`.`partner_organisations` (
                                                                   `partner_organisation_id` INT(10) NOT NULL AUTO_INCREMENT,
                                                                   `partner_organisation_name` VARCHAR(20) NOT NULL,
                                                                   `organisation_id` BIGINT(10),
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `graphium`.`partner_organisations` (
                                                                   INDEX `organisation_idx` (`organisation_id` ASC) ,
                                                                   CONSTRAINT `fk_organisation_partner`
                                                                       FOREIGN KEY (`organisation_id`)
-                                                                          REFERENCES `graphium`.`organisations` (`organisation_id`)
+                                                                          REFERENCES `graphium111111`.`organisations` (`organisation_id`)
                                                                           ON DELETE NO ACTION
                                                                           ON UPDATE NO ACTION)
     ENGINE = InnoDB
